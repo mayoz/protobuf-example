@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package exchange;
+
+option php_generic_services = true;
+
+service Exchange {
+  rpc symbols (SymbolRequest) returns (SymbolResponse) {}
+  rpc latests (LatestRequest) returns (LatestResponse) {}
+  rpc convert (ConvertRequest) returns (ConvertResponse) {}
+}
+
+message SymbolRequest {
+  repeated string symbols = 1;
+}
+
+message SymbolResponse {
+  repeated string symbols = 1;
+}
+
+message LatestRequest {
+  string base = 1;
+  repeated string symbols = 2;
+}
+
+message LatestResponse {
+  string base = 1;
+  string timestamp = 2;
+  map<string, double> data = 3;
+}
+
+message ConvertRequest {
+  string from = 1;
+  string to = 2;
+  double quantity = 3;
+}
+
+message ConvertResponse {
+  string from = 1;
+  string to = 2;
+  double value = 3;
+  string timestamp = 4;
+}

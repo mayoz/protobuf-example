@@ -1,0 +1,11 @@
+{
+    "autoload": {
+        "psr-4": {
+            "App\\": "src",
+            "": "../../proto/build/exchange/php/"
+        }
+    },
+    "require": {
+        "google/protobuf": "^3.8"
+    }
+}
